@@ -1,38 +1,50 @@
 # NBA Sports Betting Using Machine Learning 🏀
 <img src="https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting/blob/master/Screenshots/output.png" width="1010" height="292" />
 
-A machine learning AI used to predict the winners and under/overs of NBA games. Takes all team data from the 2007-08 season to current season, matched with odds of those games, using a neural network to predict winning bets for today's games. Achieves ~75% accuracy on money lines and ~58% on under/overs. Outputs expected value for teams money lines to provide better insight. The fraction of your bankroll to bet based on the Kelly Criterion is also outputted. Note that a popular, less risky approach is to bet 50% of the stake recommended by the Kelly Criterion.
+This project utilizes machine learning techniques to predict the winners and over/under outcomes of NBA games. By utilizing team data from every season from 2007-08 to now and incorporating the odds of these games, the model employs a neural network to predit outcomes and odds of upcoming games. The model achieves rougly 75% accuracy on moneyline predictions and roughly 58% on over/under outcomes. Additionally, the AI provides an expected value on the moneyline for a future game and suggests an amount of your bankroll to bet, following the Kelly Criterion. Keep in mind, a more popular and less risky approach is to bet only half of what the Kelly Criterion suggests.
 ## Packages Used
 
-Use Python 3.8. In particular the packages/libraries used are...
+This project is implemented in Python 3.8 and relies on various packages and libraries, including:
 
 * Tensorflow - Machine learning library
 * XGBoost - Gradient boosting framework
 * Numpy - Package for scientific computing in Python
 * Pandas - Data manipulation and analysis
-* Colorama - Color text output
-* Tqdm - Progress bars
+* Colorama - Used for color text output
+* Tqdm - Provides progress bars
 * Requests - Http library
-* Scikit_learn - Machine learning library
+* Scikit-learn - Machine learning library
 
 ## Usage
 
 <img src="https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting/blob/master/Screenshots/Expected_value.png" width="1010" height="424" />
 
-Make sure all packages above are installed.
+To get started, ensure that you have installed all of the above packages, which you can do by running these commands:
 
 ```bash
 $ git clone https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting.git
 $ cd NBA-Machine-Learning-Sports-Betting
 $ pip3 install -r requirements.txt
+```
+
+Then, you can run the AI using different flags; here is an example:
+
+```bash
 $ python3 main.py -xgb -odds=fanduel
 ```
 
-Odds data will be automatically fetched from sbrodds if the -odds option is provided with a sportsbook.  Options include: fanduel, draftkings, betmgm, pointsbet, caesars, wynn, bet_rivers_ny
+Odds data is automatically fetched from sbrodds if the -odds flag is present.  Options include: 
+* fanduel
+* draftkings
+* betmgm
+* pointsbet
+* caesars
+* wynn
+* bet_rivers_ny
 
-If `-odds` is not given, enter the under/over and odds for today's games manually after starting the script.
+Without the -odds flag, enter the over/under for today's games manually after starting the script.
 
-Optionally, you can add '-kc' as a command line argument to see the recommended fraction of your bankroll to wager based on the model's edge
+You can also use the '-kc' flag to view the recommended fraction of your bankroll to wager based on the model's edge.
 
 ## Flask Web App
 <img src="https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting/blob/master/Screenshots/Flask-App.png" width="922" height="580" />
